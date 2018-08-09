@@ -10,11 +10,13 @@
  - [x] Banco de dados colunar
  - [x] Manipulando dados no Cassandra
  - [x] Implementação de uma Playlist no Cassandra
- - [ ] Controle de Versão no Cassandra - Parte I
- - [ ] Controle de Versão no Cassandra - Parte II
- - [ ] Cassandra Driver para Python
+ - [x] Controle de Versão no Cassandra - Parte I
+ - [x] Controle de Versão no Cassandra - Parte II
+ - [x] Cassandra Driver para Python
  - [ ] Quando usar e não usar Banco de Dados Cassandra
  
  ### Unidade 3 - Banco de dados de documentos
  
  ### Unidade 4 - Banco de dados de Grafos
+
+##
