@@ -9,7 +9,7 @@
 - Apache Cassandra (http://downloads.datastax.com/community/)
  - [x] Banco de dados colunar
  - [x] Manipulando dados no Cassandra
- - [ ] Implementação de uma Playlist no Cassandra
+ - [x] Implementação de uma Playlist no Cassandra
  - [ ] Controle de Versão no Cassandra - Parte I
  - [ ] Controle de Versão no Cassandra - Parte II
  - [ ] Cassandra Driver para Python
