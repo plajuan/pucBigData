@@ -8,4 +8,4 @@
 ### Unidade 2 - Bancos de dados de famílias de colunas
 - Apache Cassandra (http://downloads.datastax.com/community/)
  - [x] Banco de dados colunar
- - [ ] Manipulando dados no Cassandra
+ - [x] Manipulando dados no Cassandra
