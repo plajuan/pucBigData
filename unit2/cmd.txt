@@ -1,0 +1,26 @@
+//Cassandra CQL
+
+describe keyspaces
+
+CREATE KEYSPACE aula WITH REPLICATION = {'class': 'SimpleStrategy', 'replication_factor': '3'};
+
+use aula;
+
+create table musicas ( 
+id uuid PRIMARY KEY,
+nome text,
+album text,
+artista text
+);
+
+describe tables;
+
+describe table musicas;
+
+insert into musicas (id, nome, album, artista) values (uuid(), 'Help', 'Help', 'Beatles' );
+insert into musicas (id, nome, album, artista) values (uuid(), 'Help', 'Help', 'Beatles' ) using ttl 30;
+select * from musicas where artista='Beatles' allow filtering;
+//o tipo de consulta acima não é boa para a performance pois não usa a chave primária
+
+//criar índice para o campo artista
+create index on musicas(artista);
