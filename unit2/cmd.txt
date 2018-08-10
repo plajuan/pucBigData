@@ -1,4 +1,4 @@
-//Cassandra CQL
+﻿//Cassandra CQL
 
 describe keyspaces
 
@@ -65,3 +65,9 @@ CREATE TABLE playlist (
 INSERT INTO playlist (id, nome) VALUES (1, 'Beatles forever');
 
 $ pip install cassandra-python
+
+//Quando é bom usar o Cassandra
+//Logs de aplicativos, controle de tempo de uso com tempo de vida para expirar
+//Quando não é bom
+//Banco de dados com funções agregadas - tem que fazer isso no lado do cliente
+//Quando não sabemos os tipos de consultas que serão criados no banco
