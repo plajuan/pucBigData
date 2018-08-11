@@ -1,0 +1,35 @@
+Esse banco de dados guarda arquivos com diversas características diferentes
+
+Modelo de dados agregados - deseja-se trabalhar com os dados na forma dados em unidade
+Um agregado é um conjunto de objetos relacionados - ajuda muito para trabalhar em cluster
+se uma das máquinas cair, as outras continuam o processamento
+
+O mongoDB armazena os dados no modelo BSON (Binary JSON)
+
+RELACIONAL         | DOCUMENTO
+-------------------+--------------------
+Instância do banco | Instância do banco
+Esquema            | Banco de dados
+Tabela             | Coleção
+Linha              | Documento
+Coluna             | campo
+Id linha           | _id (id do Documento)
+
+Baseado na replicação master-slave
+
+servidor: mongod.exe
+cliente: mongo.exe
+
+//mostrar bases criadas
+$ show dbs 
+
+//criar bases
+$ use aula
+
+//criar collection
+$ db.albuns.insert({})
+
+$ show collections
+$ db.albuns.find({})
+
+//mongo db cria um id, mas não é a mesma coisa que uma chave primária
