@@ -9,6 +9,7 @@
 - Apache Cassandra (http://downloads.datastax.com/community/)
  
 ### Unidade 3 - Banco de dados de documentos
-- [ ] introdução 
+- MongoDB
+ 
 ### Unidade 4 - Banco de dados de Grafos
 
