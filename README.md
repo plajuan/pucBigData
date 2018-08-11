@@ -7,16 +7,8 @@
 
 ### Unidade 2 - Bancos de dados de famílias de colunas
 - Apache Cassandra (http://downloads.datastax.com/community/)
- - [x] Banco de dados colunar
- - [x] Manipulando dados no Cassandra
- - [x] Implementação de uma Playlist no Cassandra
- - [x] Controle de Versão no Cassandra - Parte I
- - [x] Controle de Versão no Cassandra - Parte II
- - [x] Cassandra Driver para Python
- - [ ] Quando usar e não usar Banco de Dados Cassandra
  
- ### Unidade 3 - Banco de dados de documentos
- 
- ### Unidade 4 - Banco de dados de Grafos
+### Unidade 3 - Banco de dados de documentos
+- [ ] introdução 
+### Unidade 4 - Banco de dados de Grafos
 
-##
