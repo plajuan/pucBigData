@@ -33,3 +33,14 @@ $ show collections
 $ db.albuns.find({})
 
 //mongo db cria um id, mas não é a mesma coisa que uma chave primária
+
+$ db.albuns.insert({"nome":"The dark side of the moon", "data":new Data(1973, 3, 29)})
+$ db.albuns.find().pretty()
+
+//os dados nos BD de documentos não são estruturados - é a maior característica deste tipo de BD
+
+$ db.albuns.find({"nome":"Nevermind"})
+$ db.albuns.findone({"nome":"Nevermind"})
+$ db.albuns.remove({"nome":"Among the Living"})
+$ db.albuns.update({"nome":"Nevermind"}, {$set: {"duracao": 3013}})
+//update serve para modificar um atributo existente ou inserir um novo atributo
