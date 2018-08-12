@@ -10,12 +10,12 @@
  
 ### Unidade 3 - Banco de dados de documentos
 - MongoDB
-Banco de Dados de Documentos
->> Criando Documentos do MongoDB
-Consultas mais complexas no MongoDB
-Criando relacionamento entre documentos no MongoDB
-Documentos aninhados no MongoDB
-MongoDB com Python
+-[x] Banco de Dados de Documentos
+-[x] Criando Documentos do MongoDB
+-[ ] Consultas mais complexas no MongoDB
+-[ ] Criando relacionamento entre documentos no MongoDB
+-[ ] Documentos aninhados no MongoDB
+-[ ] MongoDB com Python
  
 ### Unidade 4 - Banco de dados de Grafos
 
