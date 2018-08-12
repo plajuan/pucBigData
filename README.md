@@ -12,7 +12,7 @@
 - MongoDB
 -[x] Banco de Dados de Documentos
 -[x] Criando Documentos do MongoDB
--[ ] Consultas mais complexas no MongoDB
+-[x] Consultas mais complexas no MongoDB
 -[ ] Criando relacionamento entre documentos no MongoDB
 -[ ] Documentos aninhados no MongoDB
 -[ ] MongoDB com Python
