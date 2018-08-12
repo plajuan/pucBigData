@@ -1,4 +1,4 @@
-Esse banco de dados guarda arquivos com diversas características diferentes
+﻿Esse banco de dados guarda arquivos com diversas características diferentes
 
 Modelo de dados agregados - deseja-se trabalhar com os dados na forma dados em unidade
 Um agregado é um conjunto de objetos relacionados - ajuda muito para trabalhar em cluster
@@ -44,3 +44,7 @@ $ db.albuns.findone({"nome":"Nevermind"})
 $ db.albuns.remove({"nome":"Among the Living"})
 $ db.albuns.update({"nome":"Nevermind"}, {$set: {"duracao": 3013}})
 //update serve para modificar um atributo existente ou inserir um novo atributo
+
+$ db.albuns.find({"duracao": {"$lt": 5000}}).pretty()
+
+$ db.albuns.find({$or: [{"data": {"$lt": new Date(1990,0,1)} }, {"dataLancamento": {"$lt": new Date(1990,0,1)} }] }).pretty()
