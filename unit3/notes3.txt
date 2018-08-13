@@ -73,3 +73,7 @@ $ db.albuns.insert( { "nome" : "Somewhere Far Beyond", "dataLancamento" : new Da
 
 db.albuns.find({"artista": {"nome":"Blind Guardian"} }).pretty()
 
+Mongo DB é muito bom para registrar eventos, comentários de usuários, sistema de gerenciamento de conteúdo WEB,
+comércio eletrônico, 
+
+NÃO USAR! Transações complexas, atomicidade entre transações, 
