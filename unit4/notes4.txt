@@ -1,0 +1,21 @@
+Banco de dados de Grafos
+Os grafos são bons para mostrar relacionamentos - por exemplo, em e-commerce é muito comum mostrar "quem comprou este
+produto também comprou aquele produto". (sistema de recomendação)
+
+Entidades = nós
+Relacionamentos entre entidades = arestas
+
+Redes sociais são outra boa representação de grafos (pessoas e amizades)
+Grafos também servem para determinar o caminho mínimo (esquinas = vértice, rua=aresta, atributo da rua seriam os metros)
+
+Neo4J
+Linguagem Cypher
+
+1 CREATE(dylan:Musico {nome: 'Bob Dylan', data_de_nascimento: '1941-05-24' } )
+1 CREATE(hendrix:Musico {nome: 'Jimi Hendrix' } )
+1 CREATE(al_along:Musica {nome: 'All Along the Watchtower' } )
+1 MATCH(hendrix:Musico{nome: 'Jimi Hendrix'}),(al_along:Musica{nome:"All Along the Watchtower"})
+2 CREATE(hendrix)-[r:GRAVOU]->(al_along)
+
+SHIFT + ENTER PARA inserir 2 linhas
+MATCH é uma consulta no banco
