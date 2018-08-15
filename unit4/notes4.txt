@@ -1,4 +1,4 @@
-Banco de dados de Grafos
+- Banco de dados de Grafos
 Os grafos são bons para mostrar relacionamentos - por exemplo, em e-commerce é muito comum mostrar "quem comprou este
 produto também comprou aquele produto". (sistema de recomendação)
 
@@ -19,3 +19,63 @@ Linguagem Cypher
 
 SHIFT + ENTER PARA inserir 2 linhas
 MATCH é uma consulta no banco
+
+- CONSULTAS
+MATCH  = SQL FROM 
+RETURN = SQL SELECT
+
+MATCH (m:Musico) RETURN m.nome
+MATCH (m:Musico) RETURN m
+MATCH (m) RETURN m
+MATCH (m:Musico) Where m.nome = 'Bob Dylan' RETURN m
+MATCH (m:Musico {nome: 'Bob Dylan'}) RETURN m
+
+MATCH(m:Musico {nome: 'Bob Dylan'}), (al:Musica {nome: 'All Along the Watchtower'}) CREATE(m)-[r:GRAVOU]->(al) CREATE(m)-[s:COMPOS]->(al)
+//TODOS OS NÓS
+MATCH (n1)-[]-() RETURN n1
+//TODOS OS NÓS COM ARESTAS CONVERGINDO PARA ELE
+MATCH (n1)<-[]-() RETURN n1
+//TODOS OS NÓS COM ARESTAS SAINDO DELE
+MATCH (n1)-[]->() RETURN n1
+//PARA CONTAR
+MATCH (n1)-[]->() RETURN count(n1)
+//TODOS OS RELACIONAMENTOS DO BANCO - musicos para musicas
+MATCH(n1:Musico)-[r]-(n2:Musica) RETURN n1, type(r), n2
+//MOSTRA SÓ OS RELACIONAMENTOS GRAVOU
+MATCH(n1:Musico)-[r:GRAVOU]-(n2:Musica) RETURN n1, type(r), n2
+
+EXCLUIR E EDITAR
+MATCH(h:Musico {nome: 'Jimi Hendrix'}) SET h.data_de_nascimento = '1942-11-27'
+MATCH(h:Musico {nome: 'Jimi Hendrix'}) SET h.data_de_nascimento = null
+MATCH(h:Musico {nome: 'Jimi Hendrix'}) DELETE h
+//não dá para deletar o Jimi Handrix por que ele participa de um relacionamento
+MATCH(h:Musico {nome: 'Jimi Hendrix'})-[r]-() RETURN h, type(r)
+//ele tem somente o relacionamento GRAVOU
+MATCH(h:Musico {nome: 'Jimi Hendrix'})-[r]-() DELETE r
+MATCH(h:Musico {nome: 'Jimi Hendrix'}) DELETE h
+//DELETAR TODO O BANCO DE DADOS
+MATCH (n) OPTIONAL MATCH (n)-[rel]-() DELETE rel, n
+
+CRIANDO SCRIPTS NO NEO4J - PART I
+é possível inserir comandos CREATE num arquivo txt. O neo4j irá processar este arquivo
+Se houver a possibilidade de dados duplicados, usa-se o comando MERGE
+MERGE (n1:Musico {nome: 'Bob Dylan'})
+MERGE (n2:Musico {nome: 'Bob Dylan'})
+Somente um nó é inserido no banco - este comando também serve para os relacionamentos
+arquivos csv podem ser importados no neo4j
+$ LOAD CSV WITH HEADERS FROM "file:///composicoes.csv" AS linha
+MERGE (compositor:Musico {nome: linha.compositor}) 
+MERGE (musica:Musica {nome: linha.musica}) 
+MERGE (compositor)-[:COMPOS]->(musica)
+
+$LOAD CSV WITH HEADERS
+FROM "file:///gravacoes.csv"
+AS linha
+MERGE (interprete:Musico {nome: linha.interprete})
+MERGE (musica:Musica {nome: linha.musica})
+MERGE (interprete)-[:GRAVOU]->(musica)
+
+Exercício: Retorne todos os compositores e musicas que o Bon Jovi gravou
+MATCH (bon:Musico {nome: 'Jon Bon Jovi'})-[r:GRAVOU]->(m:Musica)
+MATCH (com:Musico)-[s:COMPOS]->(m:Musica)
+RETURN com, m 
