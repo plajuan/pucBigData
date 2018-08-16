@@ -75,7 +75,43 @@ MERGE (interprete:Musico {nome: linha.interprete})
 MERGE (musica:Musica {nome: linha.musica})
 MERGE (interprete)-[:GRAVOU]->(musica)
 
+ 
+
+CRIANDO SCRIPTS NEO4J PART II
+Consultar músicos que gravaram músicas
+MATCH (i:Musico)-[g:GRAVOU]->(m:Musica) RETURN i, m
+
+
+
 Exercício: Retorne todos os compositores e musicas que o Bon Jovi gravou
+Meu:
 MATCH (bon:Musico {nome: 'Jon Bon Jovi'})-[r:GRAVOU]->(m:Musica)
 MATCH (com:Musico)-[s:COMPOS]->(m:Musica)
-RETURN com, m 
+RETURN com, m
+Professor:
+MATCH (interprete:Musico)-[gravou:GRAVOU]->(musica:Musica)
+MATCH (compositor:Musico)-[compos:COMPOS]->(music:Musica)
+WHERE interprete.nome = "Jon Bon Jovi"
+RETURN interprete, musica, compositor
+
+Neo4J Python
+
+Recomendações em sites de compras é muito bom para BD grafos
+Redes sociais (relacionamentos entre entidades com um desempenho maior e com volumes de dados huge)
+
+Replicação no Neo4j
+Cluster 1 Master -> N Slaves
+Todos são leitura e escrita
+escreve no Master, replica para os demais
+se escrever no slave, copia para o master, replica para os demais
+Alta disponibilidade  --- no entanto, por ser baseado em nós conectados, não permite a distribuição 
+dos nós em diferentes clusters (baixa escalabilidade)
+
+quando usar = 
+dados conectados (funcionários, clientes, hierarquia)
+serviços de localização
+sistema de recomendação
+
+quando não usar = 
+quando há muita alteração (update nas propriedades dos nós)
+problemas que lidam com grafos inteiros (se todo mundo se relaciona com todo mundo, então não é bom)
